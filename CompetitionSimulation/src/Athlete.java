@@ -6,7 +6,7 @@ public abstract class Athlete {
 	protected BigDecimal peso;
 	protected BigDecimal flexibilidade;
 	protected BigDecimal resistencia;
-	protected BigDecimal folego;
+	protected BigDecimal folego	;
 	protected BigDecimal forca;
 	protected int numeroLesoes;
 	
