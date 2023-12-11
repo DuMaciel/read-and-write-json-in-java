@@ -7,24 +7,46 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
 public class JsonFileHandler {
-	
+
 	public String toJson(Athlete athlete) {
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(athlete);
 		return json;
 	}
 
-	
-	public ArrayList<Athlete> readFile(String filePath) {
+	public Gymnast[] readFileGymnast() {
 		Gson gson = new Gson();
-		ArrayList<Athlete> athletesRead = null;
+		Gymnast[] athleteArray = null;
 		try {
-			FileReader reader = new  FileReader(filePath);
-			Athlete[] athleteArray = gson.fromJson(reader, Athlete[].class);
-			athletesRead = (ArrayList<Athlete>) Arrays.asList(athleteArray);
+			FileReader reader = new FileReader("ginastas.json");
+			athleteArray = gson.fromJson(reader, Gymnast[].class);
 		} catch (FileNotFoundException err) {
 			System.out.println("Erro ao ler o arquivo");
 		}
-		return athletesRead;
+		return athleteArray;
+	}
+
+	public Swimmer[] readFileSwimmer() {
+		Gson gson = new Gson();
+		Swimmer[] athleteArray = null;
+		try {
+			FileReader reader = new FileReader("nadadores.json");
+			athleteArray = gson.fromJson(reader, Swimmer[].class);
+		} catch (FileNotFoundException err) {
+			System.out.println("Erro ao ler o arquivo");
+		}
+		return athleteArray;
+	}
+
+	public Weightlifter[] readFileWeightlifter() {
+		Gson gson = new Gson();
+		Weightlifter[] athleteArray = null;
+		try {
+			FileReader reader = new FileReader("halterofilistas.json");
+			athleteArray = gson.fromJson(reader, Weightlifter[].class);
+		} catch (FileNotFoundException err) {
+			System.out.println("Erro ao ler o arquivo");
+		}
+		return athleteArray;
 	}
 }
