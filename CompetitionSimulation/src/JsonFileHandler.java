@@ -1,15 +1,19 @@
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
+import com.google.gson.JsonIOException;
 
 public class JsonFileHandler {
+	
+	private Gson gson = new GsonBuilder().setPrettyPrinting().create();
 
 	public String toJson(Athlete athlete) {
-		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(athlete);
 		return json;
 	}
@@ -48,5 +52,23 @@ public class JsonFileHandler {
 			System.out.println("Erro ao ler o arquivo");
 		}
 		return athleteArray;
+	}
+	
+	public void writeResult(Result result, String modality) {
+		try {
+			FileWriter writer = new FileWriter("resultado-" + modality + ".json");
+			gson.toJson(result, writer);
+		} catch (JsonIOException | IOException err) {
+			System.out.println("Erro ao salvar o aquivo");
+		}
+	}
+	
+	public void writeRegistrationsDenied(RegistrationDenied registrationDenied, String modality) {
+		try {
+			FileWriter writer = new FileWriter(" inscricoes-negadas-" + modality + ".json");
+			gson.toJson(registrationDenied, writer);
+		} catch (JsonIOException | IOException err) {
+			System.out.println("Erro ao salvar o aquivo");
+		}
 	}
 }
