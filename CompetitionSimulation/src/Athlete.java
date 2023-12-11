@@ -15,4 +15,32 @@ public abstract class Athlete {
 	public String getNome() {
 		return nome;
 	}
+
+	public String getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public BigDecimal getPeso() {
+		return peso;
+	}
+
+	public BigDecimal getFlexibilidade() {
+		return flexibilidade;
+	}
+
+	public BigDecimal getResistencia() {
+		return resistencia;
+	}
+
+	public BigDecimal getFolego() {
+		return folego;
+	}
+
+	public BigDecimal getForca() {
+		return forca;
+	}
+
+	public int getNumeroLesoes() {
+		return numeroLesoes;
+	}
 }
