@@ -12,11 +12,14 @@ public class Competition {
 		Period period = Period.between(birthDate, LocalDate.now());
 		int age = period.getYears();
 		
-		if(age < 18 || age > 45) {
-			throw new AgeException("O atleta deve estar entre 18 e 45 anos de idade");
+		if (age < 18) {
+			throw new AgeException("Atleta menor de idade");
+		}
+		if(age > 45) {
+			throw new AgeException("Idade do atleta é superior ao permitido");
 		}
 		if(athlete.getNumeroLesoes() > 10) {
-			throw new ExcessInjuryException("O atleta tem mais de 10 lesões");
+			throw new ExcessInjuryException("Atleta com excesso de lesoes");
 		}
 		registeredAthletes.add(athlete);
 	}
