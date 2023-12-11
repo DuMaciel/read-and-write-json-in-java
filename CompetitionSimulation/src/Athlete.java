@@ -11,4 +11,8 @@ public abstract class Athlete {
 	protected int numeroLesoes;
 	
 	public abstract BigDecimal compete();
+
+	public String getNome() {
+		return nome;
+	}
 }
