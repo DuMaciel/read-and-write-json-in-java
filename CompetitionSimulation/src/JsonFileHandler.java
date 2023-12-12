@@ -58,15 +58,17 @@ public class JsonFileHandler {
 		try {
 			FileWriter writer = new FileWriter("resultado-" + modality + ".json");
 			gson.toJson(result, writer);
+			writer.close();
 		} catch (JsonIOException | IOException err) {
 			System.out.println("Erro ao salvar o aquivo");
 		}
 	}
 	
-	public void writeRegistrationsDenied(RegistrationDenied registrationDenied, String modality) {
+	public void writeRegistrationsDenied(ListRegistrationsDenied listRegistrationsDenied, String modality) {
 		try {
 			FileWriter writer = new FileWriter(" inscricoes-negadas-" + modality + ".json");
-			gson.toJson(registrationDenied, writer);
+			gson.toJson(listRegistrationsDenied, writer);
+			writer.close();
 		} catch (JsonIOException | IOException err) {
 			System.out.println("Erro ao salvar o aquivo");
 		}

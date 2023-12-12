@@ -5,7 +5,8 @@ import java.util.concurrent.atomic.AtomicReference;
 public class CompetitionSimulation {
 	public Result simulate(Competition competition) {
 		ArrayList<Athlete> athletes = competition.getRegisteredAthletes();
-		AtomicReference<Athlete> winningAthlete = new AtomicReference<>();
+		
+		AtomicReference<Athlete> winningAthlete = new AtomicReference<>(athletes.get(0));
 		ArrayList<AthletePerformance> athletePerformance = new ArrayList<AthletePerformance>();
 
 		athletes.forEach(athlete -> {
